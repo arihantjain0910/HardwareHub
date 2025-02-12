@@ -1,0 +1,123 @@
+<% layout("./layouts/boilerplate") -%>
+<body>
+  <h3>Edit Your Assets</h3>
+  <form action="/assets/<%= assets._id %>?_method=PUT" method="post">
+    <input
+      type="text"
+      name="serialNo"
+      id="serialNo"
+      value="<%= assets.serialNo %>"
+    />
+    <br /><br />
+    <input
+      type="text"
+      name="location"
+      id="location"
+      value="<%= assets.location %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="category"
+      id="category"
+      value="<%= assets.category %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="manufacturer"
+      id="manufacturer"
+      value="<%= assets.manufacturer %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="model"
+      id="model"
+      value="<%= assets.model %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="modelNo"
+      id="modelNo"
+      value="<%= assets.modelNo %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="employeeCode"
+      id="employeeCode"
+      value="<%= assets.employeeCode %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="employeeName"
+      id="employeeName"
+      value="<%= assets.employeeName %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="department"
+      id="department"
+      value="<%= assets.department %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="ram"
+      id="ram"
+      value="<%= assets.ram %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="hdd"
+      id="hdd"
+      value="<%= assets.hdd %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="processor"
+      id="processor"
+      value="<%= assets.processor %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="keyboard"
+      id="keyboard"
+      value="<%= assets.keyboard %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="mouse"
+      id="mouse"
+      value="<%= assets.mouse %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="ip"
+      id="ip"
+      value="<%= assets.location %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="monitor"
+      id="monitor"
+      value="<%= assets.ip %>"
+    /><br /><br />
+    <input type="text" name="os" id="os" value="<%= assets.os %>" /><br /><br />
+    <input
+      type="text"
+      name="antivirus"
+      id="antivirus"
+      value="<%= assets.antivirus %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="warrenty"
+      id="warrenty"
+      value="<%= assets.warrenty %>"
+    /><br /><br />
+    <input
+      type="text"
+      name="office"
+      id="office"
+      value="<%= assets.office %>"
+    /><br /><br />
+    <button>Edit Asset</button>
+  </form>
+</body>

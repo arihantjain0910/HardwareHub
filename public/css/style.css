@@ -1,0 +1,72 @@
+.navbar {
+  height: 5rem;
+  background-color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid black; /* Thin black line */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+.nav-link {
+  color: #222222;
+  font-weight: 500;
+}
+.symbol {
+  color: rgb(241, 53, 53);
+}
+h4 {
+  text-align: center;
+  color: rgb(241, 53, 53);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 2px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+.btn-custom {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+}
+
+.btn-custom:active {
+  background-color: #004494;
+  transform: scale(0.98);
+}
+
+.btn-custom:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

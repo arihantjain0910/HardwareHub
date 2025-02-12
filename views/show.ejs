@@ -1,0 +1,73 @@
+<% layout("./layouts/boilerplate") -%>
+<body>
+  <h4 class="mt-3">All Hardwares</h4>
+  <br />
+  <!-- <form action="/assets/new" method="get">
+    <button>Create new Assets</button>
+  </form> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Serial No.</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Model Number</th>
+        <th>Employee Code</th>
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Ram</th>
+        <th>Hdd</th>
+        <th>Processor</th>
+        <th>Keyboard</th>
+        <th>Mouse</th>
+        <th>IP</th>
+        <th>Monitor</th>
+        <th>OS</th>
+        <th>Antivirus</th>
+        <th>Warrenty</th>
+        <th>Office</th>
+        <th>Edit Asset</th>
+        <th>Delete Assets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let assets of allAssets){ %>
+      <tr>
+        <td><%= assets.serialNo %></td>
+        <td><%= assets.location %></td>
+        <td><%= assets.category %></td>
+        <td><%= assets.manufacturer %></td>
+        <td><%= assets.model %></td>
+        <td><%= assets.modelNo %></td>
+        <td><%= assets.employeeCode %></td>
+        <td><%= assets.employeeName %></td>
+        <td><%= assets.department %></td>
+        <td><%= assets.ram %></td>
+        <td><%= assets.hdd %></td>
+        <td><%= assets.processor %></td>
+        <td><%= assets.keyboard %></td>
+        <td><%= assets.mouse %></td>
+        <td><%= assets.ip %></td>
+        <td><%= assets.monitor %></td>
+        <td><%= assets.os %></td>
+        <td><%= assets.antivirus %></td>
+        <td><%= assets.warrenty %></td>
+        <td><%= assets.office %></td>
+        <td>
+          <form action="/assets/<%= assets._id %>/edit" method="get">
+            <button class="btn-custom">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="/assets/<%= assets._id %>?_method=DELETE" method="post">
+            <button class="btn-custom">Delete</button>
+          </form>
+        </td>
+      </tr>
+
+      <% } %>
+    </tbody>
+  </table>
+</body>
