@@ -2,7 +2,7 @@
   height: 5rem;
   background-color: #fff;
   font-weight: 600;
-  border-bottom: 1px solid black; /* Thin black line */
+  border-bottom: 0.01rem solid black; /* Thin black line */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
   width: 135%;
 }
