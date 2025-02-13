@@ -51,7 +51,7 @@ tr:hover {
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #007bff;
+  background-color: rgb(248, 76, 76);
   border: none;
   border-radius: 3px;
 
@@ -59,15 +59,20 @@ tr:hover {
 }
 
 .btn-custom:hover {
-  background-color: #0056b3;
+  background-color: rgb(255, 0, 0);
 }
 
 .btn-custom:active {
-  background-color: #004494;
+  background-color: rgb(241, 53, 53);
   transform: scale(0.98);
 }
 
 .btn-custom:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.btn {
+  background-color: rgb(241, 53, 53);
+  border: none;
 }

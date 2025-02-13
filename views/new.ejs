@@ -2,208 +2,252 @@
 <body>
   <div class="row">
     <div class="col-8 offset-2">
-  <form action="/assets/new" method="post">
-    
-    <div class="mt-3">
-      <h4>Create New Asset</h4>
-    </div>
-    <div class="row">
-    
-    <div class="mb-3 col-3">
-      <label for="serialNo" class="form-label">Serial Number</label>
-    <input
-    class="form-control"
-      type="text"
-      name="serialNo"
-      id="serialNo"
-      placeholder="Enter serial no"
-    />
-    </div>
-    
-   <div class="mb-3 col-3">
-    <label for="location" class="form-label">Location</label>
-    <input
-    class="form-control"
-      type="text"
-      name="location"
-      id="location"
-      placeholder="Enter location"
-    />
-   </div>
-   <div class="mb-3 col-3">
-        <label for="category" class="form-label">Category</label>
+      <form
+        action="/assets/new"
+        method="post"
+        novalidate
+        class="needs-validation"
+      >
+        <div class="mt-3">
+          <h4>Create New Asset</h4>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-3">
+            <label for="serialNo" class="form-label">Serial Number</label>
+            <input
+              class="form-control"
+              type="text"
+              name="serialNo"
+              id="serialNo"
+              placeholder="Enter serial no"
+              required
+            />
+            <div class="invalid-feedback">Please Enter Serial Number</div>
+          </div>
 
-<input
-class="form-control "
-      type="text"
-      name="category"
-      id="category"
-      placeholder="Enter category"
-    />
-   </div>
-   <div class="mb-3 col-3">
-    <label for="manufacturer" class="form-label">Manufacturer</label>
-<input
-class="form-control"
-      type="text"
-      name="manufacturer"
-      id="manufacturer"
-      placeholder="Enter manufacturer"
-    />
-   </div>
- <div class="mb-3 col-3">
-  <label for="model" class="form-label">Model</label>
-<input
-class="form-control"
-      type="text"
-      name="model"
-      id="model"
-      placeholder="Enter model"
-    />
- </div>
-    <div class="mb-3 col-3">
-      <label for="modelNoModel No" class="form-label">Model No</label>
-<input
-class="form-control"
-      type="text"
-      name="modelNo"
-      id="modelNo"
-      placeholder="Enter modelNo"
-    />
+          <div class="mb-3 col-3">
+            <label for="location" class="form-label">Location</label>
+            <input
+              class="form-control"
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Enter location"
+              required
+            />
+            <div class="invalid-feedback">Please Enter location</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="category" class="form-label">Category</label>
+
+            <input
+              class="form-control"
+              type="text"
+              name="category"
+              id="category"
+              placeholder="Enter category"
+              required
+            />
+            <div class="invalid-feedback">Please Enter Category</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <input
+              class="form-control"
+              type="text"
+              name="manufacturer"
+              id="manufacturer"
+              placeholder="Enter manufacturer"
+              required
+            />
+            <div class="invalid-feedback">Please Enter manufacturer</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="model" class="form-label">Model</label>
+            <input
+              class="form-control"
+              type="text"
+              name="model"
+              id="model"
+              placeholder="Enter model"
+              required
+            />
+            <div class="invalid-feedback">Please Enter model</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="modelNoModel No" class="form-label">Model No</label>
+            <input
+              class="form-control"
+              type="text"
+              name="modelNo"
+              id="modelNo"
+              placeholder="Enter modelNo"
+              required
+            />
+            <div class="invalid-feedback">Please Enter modelNo</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="employeeCode No" class="form-label"
+              >Employee Code</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="employeeCode"
+              id="employeeCode"
+              placeholder="Enter employeeCode"
+              required
+            />
+            <div class="invalid-feedback">Please Enter employee code</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="employeeName" class="form-label">Employee Name</label>
+            <input
+              class="form-control"
+              type="text"
+              name="employeeName"
+              id="employeeName"
+              placeholder="Enter employeeName"
+              required
+            />
+            <div class="invalid-feedback">Please Enter employee name</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="department" class="form-label">Department</label>
+            <input
+              class="form-control"
+              type="text"
+              name="department"
+              id="department"
+              placeholder="Enter department"
+              required
+            />
+            <div class="invalid-feedback">Please Enter department</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="ram" class="form-label">RAM</label>
+            <input
+              class="form-control"
+              type="text"
+              name="hdd"
+              id="hdd"
+              placeholder="Enter hdd"
+              required
+            />
+            <div class="invalid-feedback">Please Enter RAM</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="processor" class="form-label">Processor</label>
+            <input
+              class="form-control"
+              type="text"
+              name="processor"
+              id="processor"
+              placeholder="Enter processor"
+              required
+            />
+            <div class="invalid-feedback">Please Enter processor</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="keyboard" class="form-label">Keyboard</label>
+            <input
+              class="form-control"
+              type="text"
+              name="keyboard"
+              id="keyboard"
+              placeholder="Enter keyboard"
+              required
+            />
+            <div class="invalid-feedback">Please Enter keyboard</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="mouse" class="form-label">Mouse</label>
+            <input
+              class="form-control"
+              type="text"
+              name="mouse"
+              id="mouse"
+              placeholder="Enter mouse"
+              required
+            />
+            <div class="invalid-feedback">Please Enter mouse</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="ip" class="form-label">IP</label>
+            <input
+              type="text"
+              name="ip"
+              id="ip"
+              class="form-control"
+              placeholder="Enter ip"
+              required
+            />
+            <div class="invalid-feedback">Please Enter ip</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="monitor" class="form-label">Monitor</label>
+            <input
+              class="form-control"
+              type="text"
+              name="monitor"
+              id="monitor"
+              placeholder="Enter monitor"
+              required
+            />
+            <div class="invalid-feedback">Please Enter monitor</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="os" class="form-label">OS</label>
+            <input
+              type="text"
+              name="os"
+              id="os"
+              class="form-control"
+              placeholder="Enter os"
+              required
+            />
+            <div class="invalid-feedback">Please Enter OS</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="antivirus" class="form-label">Antivirus</label>
+            <input
+              class="form-control"
+              type="text"
+              name="antivirus"
+              id="antivirus"
+              placeholder="Enter antivirus"
+              required
+            />
+            <div class="invalid-feedback">Please Enter antivirus</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="warrenty" class="form-label">Warrenty</label>
+            <input
+              class="form-control"
+              type="text"
+              name="warrenty"
+              id="warrenty"
+              placeholder="Enter warrenty"
+              required
+            />
+            <div class="invalid-feedback">Please Enter warrenty</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="office" class="form-label">Office</label>
+            <input
+              class="form-control"
+              type="text"
+              name="office"
+              id="office"
+              placeholder="Enter office"
+              required
+            />
+            <div class="invalid-feedback">Please Enter office</div>
+          </div>
+        </div>
+        <br />
+        <button class="btn btn-dark">Add Asset</button>
+      </form>
     </div>
-    <div class="mb-3 col-3">
-      <label for="employeeCode No" class="form-label">Employee Code</label>
- <input
- class="form-control"
-      type="text"
-      name="employeeCode"
-      id="employeeCode"
-      placeholder="Enter employeeCode"
-    />
-    </div>
-   <div class="mb-3 col-3">
-    <label for="employeeName" class="form-label">Employee Name</label>
- <input
- class="form-control"
-      type="text"
-      name="employeeName"
-      id="employeeName"
-      placeholder="Enter employeeName"
-    />
-   </div>
-   <div class="mb-3 col-3">
-     <label for="department" class="form-label">Department</label>
-<input
-class="form-control"
-      type="text"
-      name="department"
-      id="department"
-      placeholder="Enter department"
-    />
-   </div>
-    <div class="mb-3 col-3">
-      <label for="ram" class="form-label">RAM</label>
-<input
-class="form-control"
-      type="text"
-      name="ram"
-      id="ram"
-      placeholder="Enter ram"
-    />
-    </div>
-   <div class="mb-3 col-3">
-    <label for="hdd" class="form-label">HDD</label>
-<input
-class="form-control"
-      type="text"
-      name="hdd"
-      id="hdd"
-      placeholder="Enter hdd"
-    />
-   </div>
-   <div class="mb-3 col-3">
-    <label for="processor" class="form-label">Processor</label>
-<input
-class="form-control"
-      type="text"
-      name="processor"
-      id="processor"
-      placeholder="Enter processor"
-    />
-   </div>
-    <div class="mb-3 col-3">
-       <label for="keyboard" class="form-label">Keyboard</label>
-<input
-class="form-control"
-      type="text"
-      name="keyboard"
-      id="keyboard"
-      placeholder="Enter keyboard"
-    />
-    </div>
-   <div class="mb-3 col-3">
-    <label for="mouse" class="form-label">Mouse</label>
-<input
-class="form-control"
-      type="text"
-      name="mouse"
-      id="mouse"
-      placeholder="Enter mouse"
-    />
-   </div>
-    <div class="mb-3 col-3">
-      <label for="ip" class="form-label">IP</label>
- <input type="text" name="ip" id="ip" class="form-control" placeholder="Enter ip" />
-    </div>
-   <div class="mb-3 col-3">
-    <label for="monitor" class="form-label">Monitor</label>
- <input
- class="form-control"
-      type="text"
-      name="monitor"
-      id="monitor"
-      placeholder="Enter monitor"
-    />
-   </div>
-  <div class="mb-3 col-3">
-    <label for="os" class="form-label">OS</label>
- <input type="text" name="os" id="os" class="form-control" placeholder="Enter os" />
-  </div>
-   <div class="mb-3 col-3">
-     <label for="antivirus" class="form-label">Antivirus</label>
- <input
- class="form-control"
-      type="text"
-      name="antivirus"
-      id="antivirus"
-      placeholder="Enter antivirus"
-    />
-   </div>
-   <div class="mb-3 col-3">
-         <label for="warrenty" class="form-label">Warrenty</label>
-<input
-class="form-control"
-      type="text"
-      name="warrenty"
-      id="warrenty"
-      placeholder="Enter warrenty"
-    />
-   </div>
-   <div class="mb-3 col-3">
-    <label for="office" class="form-label">Office</label>
-<input
-class="form-control"
-      type="text"
-      name="office"
-      id="office"
-      placeholder="Enter office"
-    />
-   </div>
-   
-    </div>
-    <br>
-    <button class="btn btn-dark">Add Asset</button>
-  </form>
-  </div>
   </div>
 </body>
