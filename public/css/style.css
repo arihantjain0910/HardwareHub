@@ -4,7 +4,7 @@
   font-weight: 600;
   border-bottom: 0.01rem solid black; /* Thin black line */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  width: 135%;
+  width: 100%;
 }
 .nav-link {
   color: #222222;
@@ -75,4 +75,25 @@ tr:hover {
 .btn {
   background-color: rgb(241, 53, 53);
   border: none;
+}
+
+.grey{
+  background-color: rgb(233, 228, 228);
+}
+
+.showpagebtn{
+  display: flex;
+  flex-direction: row;
+}
+.delbtn{
+  margin-left: 2rem;
+}
+.btnlarge{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.searchbar{
+  display: flex ;
+  flex-direction: row ;
 }

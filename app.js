@@ -43,22 +43,62 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.get(
-  "/show",
-  wrapAsync(async (req, res) => {
-    const allAssets = await Assets.find({});
-    res.render("show.ejs", { allAssets });
-  })
-);
+
 
 app.get(
-  "/assets/:id/edit",
+  "/assets/edit/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
+   
     const assets = await Assets.findById(id);
     res.render("edit.ejs", { assets });
   })
 );
+
+app.get("/assets/:id/show/view",wrapAsync(async(req,res)=>{
+  let {id} = req.params;
+  const assets = await Assets.findById(id);
+  res.render("show.ejs", {assets});
+}));
+
+
+// app.get(
+//   "/index",
+//   wrapAsync(async (req, res) => {
+//     const allAssets = await Assets.find({});
+//     res.render("index.ejs", { allAssets });
+//   })
+// );
+app.get("/index", wrapAsync(async (req, res) => {
+    let { page = 1, limit = 10, search = "" } = req.query; // Get query parameters
+    page = parseInt(page);
+    limit = parseInt(limit);
+  
+    // Create a search filter for multiple fields (adjust fields as needed)
+    let filter = search ? {
+        $or: [
+            { employeeName: { $regex: search, $options: "i" } }, // Case-insensitive search
+            { employeeCode: { $regex: search, $options: "i" } },
+            { location: { $regex: search, $options: "i" } },
+            { category: { $regex: search, $options: "i" } }
+        ]
+    } : {};
+
+    const totalAssets = await Assets.countDocuments(filter); // Count filtered results
+    const allAssets = await Assets.find(filter)
+        .skip((page - 1) * limit) // Skip items for pagination
+        .limit(limit); // Limit items per page
+
+    res.render("index.ejs", {
+        allAssets,
+        totalPages: Math.ceil(totalAssets / limit),
+        currentPage: page,
+        search
+    });
+}));
+
+
+
 
 app.put(
   "/assets/:id",
@@ -66,9 +106,12 @@ app.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Assets.findByIdAndUpdate(id, { ...req.body });
-    res.redirect("/show");
+    res.redirect(`/assets/${id}/show/view`); 
   })
 );
+
+
+
 
 app.get(
   "/assets/new",
@@ -83,7 +126,7 @@ app.post(
   wrapAsync(async (req, res) => {
     const newAsset = new Assets(req.body);
     await newAsset.save();
-    res.redirect("/show");
+    res.redirect("/index");
   })
 );
 
@@ -92,7 +135,7 @@ app.delete(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Assets.findByIdAndDelete(id);
-    res.redirect("/show");
+    res.redirect("/index");
   })
 );
 
