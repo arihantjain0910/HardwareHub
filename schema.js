@@ -23,3 +23,10 @@ module.exports.assetSchema = Joi.object({
   warrenty: Joi.string(),
   office: Joi.string(),
 });
+
+module.exports.callLogSchema = Joi.object({
+  callLog: Joi.object({
+    callNumber: Joi.number().required(),
+    problemDescription: Joi.string().required(),
+  }).required(),
+});

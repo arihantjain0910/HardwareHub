@@ -2,271 +2,263 @@
 <body>
   <div class="row">
     <div class="col-8 offset-2">
-      
-        <div class="mt-3">
-          <h4>Asset Details</h4>
+      <div class="mt-3">
+        <h4>Asset Details</h4>
+      </div>
+      <div class="row">
+        <div class="mb-3 col-3">
+          <label for="serialNo" class="form-label">Serial Number</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="serialNo"
+            id="serialNo"
+            value="<%= assets.serialNo %>"
+            readonly
+          />
         </div>
-        <div class="row">
-          <div class="mb-3 col-3">
-            <label for="serialNo" class="form-label">Serial Number</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="serialNo"
-              id="serialNo"
-              value="<%= assets.serialNo %>"
-              readonly
-            />
-          </div>
 
-          <div class="mb-3 col-3">
-            <label for="location" class="form-label">Location</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="location"
-              id="location"
-              value="<%= assets.location %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="category" class="form-label">Category</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="category"
-              id="category"
-              value="<%= assets.category %>"
-              readonly
-            />
-
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="manufacturer" class="form-label">Manufacturer</label>
-            <input
-              class="form-control grey" 
-              type="text"
-              name="manufacturer"
-              id="manufacturer"
-              value="<%= assets.manufacturer %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="model" class="form-label">Model</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="model"
-              id="model"
-              value="<%= assets.model %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="modelNo" class="form-label">Model No</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="modelNo"
-              id="modelNo"
-              value="<%= assets.modelNo %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="employeeCode" class="form-label">Employee Code</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="employeeCode"
-              id="employeeCode"
-              value="<%= assets.employeeCode %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="employeeName" class="form-label">Employee Name</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="employeeName"
-              id="employeeName"
-              value="<%= assets.employeeName %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="department" class="form-label">Department</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="department"
-              id="department"
-              value="<%= assets.department %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="ram" class="form-label">RAM</label>
-            <input
-              type="text"
-              name="ram"
-              id="ram"
-              value="<%= assets.ram %>"
-              class="form-control grey"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="hdd" class="form-label">HDD</label>
-            <input
-              type="text"
-              name="hdd"
-              id="hdd"
-              value="<%= assets.hdd %>"
-              class="form-control grey"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="processor" class="form-label">Processor</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="processor"
-              id="processor"
-              value="<%= assets.processor %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="keyboard" class="form-label">Keyboard</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="keyboard"
-              id="keyboard"
-              value="<%= assets.keyboard %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="mouse" class="form-label">Mouse</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="mouse"
-              id="mouse"
-              value="<%= assets.mouse %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="ip" class="form-label">IP</label>
-            <input
-              type="text"
-              name="ip"
-              id="ip"
-              value="<%= assets.ip %>"
-              class="form-control grey"
-              readonly
-            />
-          </div>
-          <div class="mb-3 col-3">
-            <label for="monitor" class="form-label">Monitor</label>
-            <input
-              type="text"
-              name="monitor"
-              id="monitor"
-              value="<%= assets.monitor %>"
-              class="form-control grey"
-              readonly
-            />
-          </div>
-          <div class="mb-3 col-3">
-            <label for="os" class="form-label">OS</label>
-            <input
-              type="text"
-              name="os"
-              id="os"
-              value="<%= assets.os %>"
-              class="form-control grey"
-              readonly
-            />
-          </div>
-          <div class="mb-3 col-3">
-            <label for="antivirus" class="form-label">Antivirus</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="antivirus"
-              id="antivirus"
-              value="<%= assets.antivirus %>"
-              readonly
-            />
-            
-          </div>
-          <div class="mb-3 col-3">
-            <label for="warrenty" class="form-label">Warrenty</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="warrenty"
-              id="warrenty"
-              value="<%= assets.warrenty %>"
-              readonly
-            />
-           
-          </div>
-          <div class="mb-3 col-3">
-            <label for="office" class="form-label">Office</label>
-            <input
-              class="form-control grey"
-              type="text"
-              name="office"
-              id="office"
-              value="<%= assets.office %>"
-              readonly
-            />
-            
-          </div>
-          <div class="showpagebtn mt-2">
-            <form action="/assets/edit/<%= assets._id %>" method="get">
-            <button  type="submit" class="btn-custom btnlarge">Edit</button>
-          </form>
-           
-          <form action="/assets/<%= assets._id %>?_method=DELETE" method="post" id="deleteForm-<%= assets._id %>">
-            <button class="btn-custom delbtn btnlarge" onclick="confirmDelete('<%= assets._id %>',event)">Delete</button>
-          </form>
-          </div>
+        <div class="mb-3 col-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="location"
+            id="location"
+            value="<%= assets.location %>"
+            readonly
+          />
         </div>
-        <br />
-      
+        <div class="mb-3 col-3">
+          <label for="category" class="form-label">Category</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="category"
+            id="category"
+            value="<%= assets.category %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="manufacturer" class="form-label">Manufacturer</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="manufacturer"
+            id="manufacturer"
+            value="<%= assets.manufacturer %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="model" class="form-label">Model</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="model"
+            id="model"
+            value="<%= assets.model %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="modelNo" class="form-label">Model No</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="modelNo"
+            id="modelNo"
+            value="<%= assets.modelNo %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="employeeCode" class="form-label">Employee Code</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="employeeCode"
+            id="employeeCode"
+            value="<%= assets.employeeCode %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="employeeName" class="form-label">Employee Name</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="employeeName"
+            id="employeeName"
+            value="<%= assets.employeeName %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="department" class="form-label">Department</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="department"
+            id="department"
+            value="<%= assets.department %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="ram" class="form-label">RAM</label>
+          <input
+            type="text"
+            name="ram"
+            id="ram"
+            value="<%= assets.ram %>"
+            class="form-control grey"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="hdd" class="form-label">HDD</label>
+          <input
+            type="text"
+            name="hdd"
+            id="hdd"
+            value="<%= assets.hdd %>"
+            class="form-control grey"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="processor" class="form-label">Processor</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="processor"
+            id="processor"
+            value="<%= assets.processor %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="keyboard" class="form-label">Keyboard</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="keyboard"
+            id="keyboard"
+            value="<%= assets.keyboard %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="mouse" class="form-label">Mouse</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="mouse"
+            id="mouse"
+            value="<%= assets.mouse %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="ip" class="form-label">IP</label>
+          <input
+            type="text"
+            name="ip"
+            id="ip"
+            value="<%= assets.ip %>"
+            class="form-control grey"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="monitor" class="form-label">Monitor</label>
+          <input
+            type="text"
+            name="monitor"
+            id="monitor"
+            value="<%= assets.monitor %>"
+            class="form-control grey"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="os" class="form-label">OS</label>
+          <input
+            type="text"
+            name="os"
+            id="os"
+            value="<%= assets.os %>"
+            class="form-control grey"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="antivirus" class="form-label">Antivirus</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="antivirus"
+            id="antivirus"
+            value="<%= assets.antivirus %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="warrenty" class="form-label">Warrenty</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="warrenty"
+            id="warrenty"
+            value="<%= assets.warrenty %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3 col-3">
+          <label for="office" class="form-label">Office</label>
+          <input
+            class="form-control grey"
+            type="text"
+            name="office"
+            id="office"
+            value="<%= assets.office %>"
+            readonly
+          />
+        </div>
+        <div class="showpagebtn mt-2">
+          <form action="/assets/edit/<%= assets._id %>" method="get">
+            <button type="submit" class="btn-custom btnlarge">Edit</button>
+          </form>
+
+          <form
+            action="/assets/<%= assets._id %>?_method=DELETE"
+            method="post"
+            id="deleteForm-<%= assets._id %>"
+          >
+            <button
+              class="btn-custom delbtn btnlarge"
+              onclick="confirmDelete('<%= assets._id %>',event)"
+            >
+              Delete
+            </button>
+          </form>
+
+          <form action="/assets/callLogs/<%= assets._id %>" method="get" id="">
+            <button class="btn-custom delbtn btnlarge">Add Call Logs</button>
+          </form>
+        </div>
+      </div>
+      <br />
     </div>
   </div>
-<script>
-  function confirmDelete(assetId, event) {
-    event.preventDefault(); // Prevent form from submitting automatically
-    if (confirm("Are you sure you want to delete this asset?")) {
-      document.getElementById(`deleteForm-${assetId}`).submit(); // Submit only if "OK" is clicked
+  <script>
+    function confirmDelete(assetId, event) {
+      event.preventDefault(); // Prevent form from submitting automatically
+      if (confirm("Are you sure you want to delete this asset?")) {
+        document.getElementById(`deleteForm-${assetId}`).submit(); // Submit only if "OK" is clicked
+      }
     }
-  }
-</script>
-
-
+  </script>
 </body>

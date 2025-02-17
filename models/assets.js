@@ -1,3 +1,4 @@
+const { ref } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -22,6 +23,16 @@ const assetSchema = new Schema({
   antivirus: String,
   warrenty: String,
   office: String,
+  deleteFlag: {
+    type: Boolean,
+    default: false,
+  },
+  callLogs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "CallLogs",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Assets", assetSchema);

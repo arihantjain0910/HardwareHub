@@ -22,5 +22,8 @@
   });
 })();
 
-
-
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("input", function () {
+    this.value = this.value.toUpperCase();
+  });
+});

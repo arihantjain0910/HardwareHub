@@ -8,7 +8,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { assetSchema } = require("./schema.js");
+const { assetSchema, callLogSchema } = require("./schema.js");
+const CallLogs = require("./models/callLogs.js");
 
 const MongoURL = "mongodb://127.0.0.1:27017/hardwareHub";
 main()
@@ -39,66 +40,68 @@ const validateAssets = (req, res, next) => {
   }
 };
 
+const validateCallLogs = (req, res, next) => {
+  let { error } = callLogSchema.validate(req.body);
+  if (error) {
+    let errMsg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(400, errMsg);
+  } else {
+    next();
+  }
+};
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
-
 
 app.get(
   "/assets/edit/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-   
+
     const assets = await Assets.findById(id);
     res.render("edit.ejs", { assets });
   })
 );
 
-app.get("/assets/:id/show/view",wrapAsync(async(req,res)=>{
-  let {id} = req.params;
-  const assets = await Assets.findById(id);
-  res.render("show.ejs", {assets});
-}));
+app.get(
+  "/assets/:id/show/view",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const assets = await Assets.findById(id);
+    res.render("show.ejs", { assets });
+  })
+);
 
-
-// app.get(
-//   "/index",
-//   wrapAsync(async (req, res) => {
-//     const allAssets = await Assets.find({});
-//     res.render("index.ejs", { allAssets });
-//   })
-// );
-app.get("/index", wrapAsync(async (req, res) => {
-    let { page = 1, limit = 10, search = "" } = req.query; // Get query parameters
+app.get(
+  "/index",
+  wrapAsync(async (req, res) => {
+    let { page = 1, limit = 10, search = "" } = req.query;
     page = parseInt(page);
     limit = parseInt(limit);
-  
-    // Create a search filter for multiple fields (adjust fields as needed)
-    let filter = search ? {
+    let filter = {
+      deleteFlag: false,
+      ...(search && {
         $or: [
-            { employeeName: { $regex: search, $options: "i" } }, // Case-insensitive search
-            { employeeCode: { $regex: search, $options: "i" } },
-            { location: { $regex: search, $options: "i" } },
-            { category: { $regex: search, $options: "i" } }
-        ]
-    } : {};
-
-    const totalAssets = await Assets.countDocuments(filter); // Count filtered results
+          { employeeName: { $regex: search, $options: "i" } },
+          { employeeCode: { $regex: search, $options: "i" } },
+          { location: { $regex: search, $options: "i" } },
+          { category: { $regex: search, $options: "i" } },
+        ],
+      }),
+    };
+    const totalAssets = await Assets.countDocuments(filter);
     const allAssets = await Assets.find(filter)
-        .skip((page - 1) * limit) // Skip items for pagination
-        .limit(limit); // Limit items per page
-
+      .skip((page - 1) * limit)
+      .limit(limit);
     res.render("index.ejs", {
-        allAssets,
-        totalPages: Math.ceil(totalAssets / limit),
-        currentPage: page,
-        search
+      allAssets,
+      totalPages: Math.ceil(totalAssets / limit),
+      currentPage: page,
+      search,
     });
-}));
-
-
-
+  })
+);
 
 app.put(
   "/assets/:id",
@@ -106,12 +109,9 @@ app.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Assets.findByIdAndUpdate(id, { ...req.body });
-    res.redirect(`/assets/${id}/show/view`); 
+    res.redirect(`/assets/${id}/show/view`);
   })
 );
-
-
-
 
 app.get(
   "/assets/new",
@@ -134,8 +134,33 @@ app.delete(
   "/assets/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    await Assets.findByIdAndDelete(id);
+    // Update deleteFlag instead of deleting the record
+    await Assets.findByIdAndUpdate(id, { deleteFlag: true });
     res.redirect("/index");
+  })
+);
+
+app.get(
+  "/assets/callLogs/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const assets = await Assets.findById(id).populate("callLogs");
+    res.render("callLogs.ejs", { assets });
+  })
+);
+
+app.post(
+  "/assets/callLogs/:id",
+  validateCallLogs,
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const assets = await Assets.findById(id);
+    let newCallLog = new CallLogs(req.body.callLog);
+    assets.callLogs.push(newCallLog);
+    await newCallLog.save();
+    await assets.save();
+    console.log("new call log saved!");
+    res.redirect(`/assets/callLogs/${id}`);
   })
 );
 
