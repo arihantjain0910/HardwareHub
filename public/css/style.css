@@ -2,7 +2,7 @@
   height: 5rem;
   background-color: #fff;
   font-weight: 600;
-  border-bottom: 0.01rem solid black; /* Thin black line */
+  border-bottom: 0.01rem solid rgb(165, 165, 165); /* Thin black line */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
   width: 100%;
 }
@@ -53,7 +53,7 @@ tr:hover {
   color: white;
   background-color: rgb(248, 76, 76);
   border: none;
-  border-radius: 3px;
+  border-radius: 2rem;
 
   cursor: pointer;
 }
@@ -77,23 +77,28 @@ tr:hover {
   border: none;
 }
 
-.grey{
+.grey {
   background-color: rgb(233, 228, 228);
 }
 
-.showpagebtn{
+.showpagebtn {
   display: flex;
   flex-direction: row;
 }
-.delbtn{
+.delbtn {
   margin-left: 2rem;
 }
-.btnlarge{
+.btnlarge {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.searchbar{
-  display: flex ;
-  flex-direction: row ;
+.searchbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-btn {
+  border-radius: 5rem;
+  padding: 3px 12px;
 }

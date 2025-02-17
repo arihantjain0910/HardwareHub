@@ -256,17 +256,22 @@
             <div class="invalid-feedback">Please Enter office</div>
           </div>
         </div>
-        
-        <button class="btn btn-dark btn-custom" onclick="confirmsEdit('<%= assets._id %>',event)">Save</button>
+
+        <button
+          class="btn btn-dark btn-custom btnlarge"
+          onclick="confirmsEdit('<%= assets._id %>',event)"
+        >
+          Save
+        </button>
       </form>
     </div>
   </div>
   <script>
-  function confirmsEdit(assetId, event) {
-    event.preventDefault(); // Prevent form from submitting automatically
-    if (confirm("Are you sure you want to Edit this asset?")) {
-      document.getElementById(`editForm-${assetId}`).submit(); // Submit only if "OK" is clicked
+    function confirmsEdit(assetId, event) {
+      event.preventDefault(); // Prevent form from submitting automatically
+      if (confirm("Are you sure you want to Edit this asset?")) {
+        document.getElementById(`editForm-${assetId}`).submit(); // Submit only if "OK" is clicked
+      }
     }
-  }
-</script>
+  </script>
 </body>

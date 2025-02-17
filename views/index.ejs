@@ -1,14 +1,19 @@
 <% layout("./layouts/boilerplate") -%>
 <body>
-    <form action="/index" method="GET" class="mb-2 mt-2">
-      <div class="row justify-content-center">
-    <div class="col-md-3 d-flex">
-        <input type="text" name="search" placeholder="Search..." value="<%= search %>" class="form-control me-2">
-        <button class="btn btn-custom">Search</button>
+  <form action="/index" method="GET" class="mb-2 mt-2">
+    <div class="row justify-content-center">
+      <div class="col-md-3 d-flex">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search..."
+          value="<%= search %>"
+          class="form-control me-2 search-btn"
+        />
+        <button class="btn btn-custom btnlarge search-btn">Search</button>
+      </div>
     </div>
-</div>
-
-</form>
+  </form>
   <h4 class="mt-2">All Hardwares</h4>
   <table>
     <thead>
@@ -31,13 +36,9 @@
         <td><%= assets.category %></td>
         <td>
           <form action="/assets/<%= assets._id %>/show/view" method="get">
-            <button class="btn-custom">View</button>
+            <button class="btn-custom btnlarge">View</button>
           </form>
         </td>
-        
-        
-        
-       
       </tr>
 
       <% } %>
@@ -45,13 +46,12 @@
   </table>
   <div>
     <% if (currentPage > 1) { %>
-        <a href="/index?page=<%= currentPage - 1 %>&search=<%= search %>">Previous</a>
+    <a href="/index?page=<%= currentPage - 1 %>&search=<%= search %>"
+      >Previous</a
+    >
+    <% } %> Page <%= currentPage %> of <%= totalPages %> <% if (currentPage <
+    totalPages) { %>
+    <a href="/index?page=<%= currentPage + 1 %>&search=<%= search %>">Next</a>
     <% } %>
-
-    Page <%= currentPage %> of <%= totalPages %>
-
-    <% if (currentPage < totalPages) { %>
-        <a href="/index?page=<%= currentPage + 1 %>&search=<%= search %>">Next</a>
-    <% } %>
-</div>
+  </div>
 </body>
