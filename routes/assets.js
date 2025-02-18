@@ -31,6 +31,10 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const assets = await Assets.findById(id);
+    if (!assets) {
+      req.flash("error", "Asset does not exists!");
+      res.redirect("/index");
+    }
     res.render("show.ejs", { assets });
   })
 );
@@ -41,6 +45,7 @@ router.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Assets.findByIdAndUpdate(id, { ...req.body });
+    req.flash("success", "Successfully updated!");
     res.redirect(`/assets/${id}/show/view`);
   })
 );
@@ -58,6 +63,7 @@ router.post(
   wrapAsync(async (req, res) => {
     const newAsset = new Assets(req.body);
     await newAsset.save();
+    req.flash("success", "New Asset Created");
     res.redirect("/index");
   })
 );
@@ -68,6 +74,7 @@ router.delete(
     let { id } = req.params;
     // Update deleteFlag instead of deleting the record
     await Assets.findByIdAndUpdate(id, { deleteFlag: true });
+    req.flash("success", "Successfully Deleted!");
     res.redirect("/index");
   })
 );

@@ -35,6 +35,7 @@ router.post(
     assets.callLogs.push(newCallLog);
     await newCallLog.save();
     await assets.save();
+    req.flash("success", "New call Log created!");
     res.redirect(`/assets/callLogs/${id}`);
   })
 );
@@ -45,6 +46,7 @@ router.delete(
     let { id, callLogId } = req.params;
     await Assets.findByIdAndUpdate(id, { $pull: { callLogs: callLogId } });
     await CallLogs.findByIdAndDelete(callLogId);
+    req.flash("success", " Call Log deleted!");
     res.redirect(`/assets/callLogs/${id}`);
   })
 );

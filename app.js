@@ -14,6 +14,7 @@ const assets = require("./routes/assets.js");
 const callLogs = require("./routes/callLogs.js");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const MongoURL = "mongodb://127.0.0.1:27017/hardwareHub";
 main()
@@ -34,13 +35,31 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-app.use("/", assets);
-app.use("/", callLogs);
-app.use(cookieParser());
+const sessionOptions = {
+  secret: "mysupersecretkey",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+app.use(session(sessionOptions));
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
+
+app.use("/", assets);
+app.use("/", callLogs);
+app.use(cookieParser());
 
 app.get(
   "/index",
