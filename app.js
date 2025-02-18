@@ -8,8 +8,12 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { assetSchema, callLogSchema } = require("./schema.js");
-const CallLogs = require("./models/callLogs.js");
+// const { assetSchema, callLogSchema } = require("./schema.js");
+// const CallLogs = require("./models/callLogs.js");
+const assets = require("./routes/assets.js");
+const callLogs = require("./routes/callLogs.js");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const MongoURL = "mongodb://127.0.0.1:27017/hardwareHub";
 main()
@@ -30,48 +34,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-const validateAssets = (req, res, next) => {
-  let { error } = assetSchema.validate(req.body);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
-
-const validateCallLogs = (req, res, next) => {
-  let { error } = callLogSchema.validate(req.body);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
+app.use("/", assets);
+app.use("/", callLogs);
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
-app.get(
-  "/assets/edit/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-
-    const assets = await Assets.findById(id);
-    res.render("edit.ejs", { assets });
-  })
-);
-
-app.get(
-  "/assets/:id/show/view",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const assets = await Assets.findById(id);
-    res.render("show.ejs", { assets });
-  })
-);
 
 app.get(
   "/index",
@@ -100,67 +69,6 @@ app.get(
       currentPage: page,
       search,
     });
-  })
-);
-
-app.put(
-  "/assets/:id",
-  validateAssets,
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    await Assets.findByIdAndUpdate(id, { ...req.body });
-    res.redirect(`/assets/${id}/show/view`);
-  })
-);
-
-app.get(
-  "/assets/new",
-  wrapAsync((req, res) => {
-    res.render("new.ejs");
-  })
-);
-
-app.post(
-  "/assets/new",
-  validateAssets,
-  wrapAsync(async (req, res) => {
-    const newAsset = new Assets(req.body);
-    await newAsset.save();
-    res.redirect("/index");
-  })
-);
-
-app.delete(
-  "/assets/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    // Update deleteFlag instead of deleting the record
-    await Assets.findByIdAndUpdate(id, { deleteFlag: true });
-    res.redirect("/index");
-  })
-);
-
-app.get(
-  "/assets/callLogs/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const assets = await Assets.findById(id).populate("callLogs");
-    res.render("callLogs.ejs", { assets });
-  })
-);
-
-app.post(
-  "/assets/callLogs/:id",
-  validateCallLogs,
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const assets = await Assets.findById(id);
-    let newCallLog = new CallLogs(req.body.callLog);
-    assets.callLogs.push(newCallLog);
-    await newCallLog.save();
-    await assets.save();
-    console.log("new call log saved!");
-    res.redirect(`/assets/callLogs/${id}`);
   })
 );
 

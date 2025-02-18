@@ -26,7 +26,23 @@ module.exports.assetSchema = Joi.object({
 
 module.exports.callLogSchema = Joi.object({
   callLog: Joi.object({
+    plant: Joi.string().required(),
+    department: Joi.string().required(),
+    employeeCode: Joi.string().required(),
+    employeeName: Joi.string().required(),
+    category: Joi.string().required(),
+    serialNumber: Joi.string().required(),
     callNumber: Joi.number().required(),
     problemDescription: Joi.string().required(),
+    reportingDate: Joi.date().required(),
+    attendingDate: Joi.date().required(),
+    attendedBy: Joi.string().required(),
+    solutionDate: Joi.date().required(),
+    remarks: Joi.string().required(),
+    sendDate: Joi.date().required(),
+    gatePassNumber: Joi.number().required(),
+    receiveDate: Joi.date().required(),
+    challanNumber: Joi.number().required(),
+    serviceProviderName: Joi.string().required(),
   }).required(),
 });

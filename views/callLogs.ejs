@@ -1,5 +1,6 @@
 <% layout("./layouts/boilerplate") -%>
-<body>
+<div class="row">
+  <div class="col-8 offset-2">
   <form
     action="/assets/callLogs/<%= assets._id %>"
     method="post"
@@ -7,10 +8,95 @@
     novalidate
   >
     <div class="mt-3">
-      <h4>Add Call Logs</h4>
+      <h4>Leave a Call Logs</h4>
     </div>
-    <div class="row offset-2">
-      <div class="col-8 mb-3">
+    <div class="row">
+      <div class="col-3  mb-3">
+        <label for="plant" class="form-label">Plant</label>
+        <input
+          type="text"
+          placeholder="Enter plant"
+          name="callLog[plant]"
+          class="form-control grey"
+          value="<%= assets.location %>"
+          readonly
+        />
+        <div class="invalid-feedback">
+          <p>Please enter plant</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="department" class="form-label">Department</label>
+        <input
+          type="text"
+          placeholder="Enter Department"
+          name="callLog[department]"
+          class="form-control grey"
+          value="<%= assets.department %>"
+          readonly
+        />
+        <div class="invalid-feedback">
+          <p>Please enter department</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="employeeCode" class="form-label">Employee Code</label>
+        <input
+          type="text"
+          placeholder="Enter employee Code"
+          name="callLog[employeeCode]"
+          class="form-control grey"
+          value="<%= assets.employeeCode %>"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter employee Code</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="employeeName" class="form-label">Employee Name</label>
+        <input
+          type="text"
+          placeholder="Enter employee Name"
+          name="callLog[employeeName]"
+          class="form-control grey"
+          value="<%= assets.employeeName %>"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter employee Name</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input
+          type="text"
+          placeholder="Enter Category"
+          name="callLog[category]"
+          class="form-control grey"
+          value="<%= assets.category %>"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter Category</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="serialNumber" class="form-label">Serial Number</label>
+        <input
+          type="text"
+          placeholder="Enter serial Number"
+          name="callLog[serialNumber]"
+          class="form-control grey"
+          required
+          value="<%= assets.serialNo %>"
+        />
+        <div class="invalid-feedback">
+          <p>Please enter serial Number</p>
+        </div>
+      </div>
+      
+      <div class="col-3 mb-3">
         <label for="callNumber" class="form-label">Call Log Number</label>
         <input
           type="number"
@@ -23,7 +109,7 @@
           <p>Please enter call Log No.</p>
         </div>
       </div>
-      <div class="col-8 mb-2">
+      <div class="col-3 mb-2">
         <label for="problemDescription" class="form-label"
           >Problem Description</label
         >
@@ -38,20 +124,160 @@
           <p>Please enter description</p>
         </div>
       </div>
-
+      <div class="col-3 mb-3">
+        <label for="reportingDate" class="form-label">Reporting Date</label>
+        <input
+          type="date"
+          placeholder="Enter reporting Date"
+          name="callLog[reportingDate]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter reporting Date</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="attendingDate" class="form-label">Attending Date</label>
+        <input
+          type="date"
+          placeholder="Enter attending Date"
+          name="callLog[attendingDate]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter attending Date</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="attendedBy" class="form-label">Attended By</label>
+        <input
+          type="text"
+          placeholder="Enter attended By"
+          name="callLog[attendedBy]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter attended By</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="solutionDate" class="form-label">Solution Date</label>
+        <input
+          type="date"
+          placeholder="Enter solutionDate"
+          name="callLog[solutionDate]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter solution Date</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="remarks" class="form-label">Remarks</label>
+        <input
+          type="text"
+          placeholder="Enter remarks"
+          name="callLog[remarks]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter remarks</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="sendDate" class="form-label">Send Date</label>
+        <input
+          type="date"
+          placeholder="Enter sendDate"
+          name="callLog[sendDate]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter send Date</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="gatePassNumber" class="form-label">Gate Pass No</label>
+        <input
+          type="number"
+          placeholder="Enter gate Pass Number"
+          name="callLog[gatePassNumber]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter gate Pass Number</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="receiveDate" class="form-label">Receive Date</label>
+        <input
+          type="date"
+          placeholder="Enter receiveDate"
+          name="callLog[receiveDate]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter receive Date</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="challanNumber" class="form-label">Challan Number</label>
+        <input
+          type="number"
+          placeholder="Enter challan Number"
+          name="callLog[challanNumber]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter challan Number</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <label for="serviceProviderName" class="form-label">Service Provider Name</label>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          name="callLog[serviceProviderName]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          <p>Please enter Name</p>
+        </div>
+      </div>
       <div>
         <button type="submit" class="btn btn-custom btnlarge">Submit</button>
       </div>
-    </div>
   </form>
   <br /><br />
-  <hr />
-  <h4>All Call Logs</h4>
-  <ul>
-    <% for(callLog of assets.callLogs){ %>
-    <li><%= callLog.callNumber %></li>
-    <li><%= callLog.problemDescription %></li>
-    <br />
-    <% } %>
-  </ul>
-</body>
+ 
+    <hr />
+
+  <p><b>All Call Logs</b></p>
+  <div class="row">
+  <% for(callLog of assets.callLogs){ %>  
+  <div class="card col-3 ms-3 mb-3">
+    <div class="card-body">
+      <h6 class="card-title"><%= callLog.attendedBy %></h6>
+      <p class="card-text"><%= callLog.callNumber %></p>
+      <p class="card-text"><%= callLog.problemDescription %></p>
+    </div>
+    <form action="/assets/<%= assets._id %>/callLog/<%= callLog._id %>?_method=DELETE" class="mb-3" method="post">
+      <button type="submit" class="btn btn-custom btn-sm">Delete</button>
+    </form>
+  </div>
+  <% } %>
+</div>
+
+</div>
+</div>
+

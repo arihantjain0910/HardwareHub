@@ -78,7 +78,7 @@ tr:hover {
 }
 
 .grey {
-  background-color: rgb(233, 228, 228);
+  background-color: rgb(214, 214, 214);
 }
 
 .showpagebtn {
@@ -101,4 +101,8 @@ tr:hover {
 .search-btn {
   border-radius: 5rem;
   padding: 3px 12px;
+}
+
+label {
+  font-weight: 400;
 }
