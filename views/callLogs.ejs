@@ -271,9 +271,11 @@
       <p class="card-text"><%= callLog.callNumber %></p>
       <p class="card-text"><%= callLog.problemDescription %></p>
     </div>
+    <% if(currUser && currUser.isAdmin === true){ %>
     <form action="/assets/<%= assets._id %>/callLog/<%= callLog._id %>?_method=DELETE" class="mb-3" method="post">
       <button type="submit" class="btn btn-custom btn-sm">Delete</button>
     </form>
+    <% } %>
   </div>
   <% } %>
 </div>

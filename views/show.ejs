@@ -232,9 +232,16 @@
           <% if((currUser && currUser._id.equals(assets.owner._id)) || (currUser
           && currUser.isAdmin === true)){ %>
           <form action="/assets/edit/<%= assets._id %>" method="get">
-            <button type="submit" class="btn-custom btnlarge">Edit</button>
+            <button type="submit" class="btn-custom btnlarge">
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <span style="margin-right: 8px">Edit</span>
+                <i class="fa-solid fa-pen-to-square"></i>
+              </div>
+            </button>
           </form>
-
+          <% } %> <% if(currUser && currUser.isAdmin === true){ %>
           <form
             action="/assets/<%= assets._id %>?_method=DELETE"
             method="post"
@@ -244,10 +251,16 @@
               class="btn-custom delbtn btnlarge"
               onclick="confirmDelete('<%= assets._id %>',event)"
             >
-              Delete
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <span style="margin-right: 8px">Delete</span>
+                <i class="fa-solid fa-trash"></i>
+              </div>
             </button>
           </form>
-
+          <% } %> <% if((currUser && currUser._id.equals(assets.owner._id)) ||
+          (currUser && currUser.isAdmin === true)){ %>
           <form action="/assets/callLogs/<%= assets._id %>" method="get" id="">
             <button class="btn-custom delbtn btnlarge">Add Call Logs</button>
           </form>

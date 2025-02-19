@@ -72,15 +72,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/demoUser", async (req, res) => {
-  let fakeUser = new User({
-    email: "user@gmail.com",
-    username: "user",
-  });
+// app.get("/demoUser", async (req, res) => {
+//   let fakeUser = new User({
+//     email: "user@gmail.com",
+//     username: "user",
+//   });
 
-  let registerUser = await User.register(fakeUser, "helloworld");
-  res.send(registerUser);
-});
+//   let registerUser = await User.register(fakeUser, "helloworld");
+//   res.send(registerUser);
+// });
 
 app.use("/", assets);
 app.use("/", callLogs);

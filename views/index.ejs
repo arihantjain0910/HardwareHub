@@ -10,12 +10,17 @@
           value="<%= search %>"
           class="form-control me-2 search-btn"
         />
-        <button class="btn btn-custom btnlarge search-btn">Search</button>
+        <button class="btn btn-custom btnlarge search-btn">
+          <div style="display: flex; flex-direction: row; align-items: center">
+            <span style="margin-right: 8px">Search</span>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </button>
       </div>
     </div>
   </form>
   <div class="row offset-2">
-    <div class="col-10">
+    <div class="col-9">
       <h4 class="mt-2">All Hardwares</h4>
       <table>
         <thead>
