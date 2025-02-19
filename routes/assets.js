@@ -5,6 +5,8 @@ const { assetSchema, callLogSchema } = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const CallLogs = require("../models/callLogs.js");
 const Assets = require("../models/assets.js");
+const User = require("../models/assets.js");
+const { isLoggedIn } = require("../middleware.js");
 
 const validateAssets = (req, res, next) => {
   let { error } = assetSchema.validate(req.body);
@@ -18,6 +20,7 @@ const validateAssets = (req, res, next) => {
 
 router.get(
   "/assets/edit/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
 
@@ -30,17 +33,22 @@ router.get(
   "/assets/:id/show/view",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const assets = await Assets.findById(id);
+    const assets = await Assets.findById(id)
+      .populate("callLogs")
+      .populate("owner");
+    console.log(assets.owner);
     if (!assets) {
       req.flash("error", "Asset does not exists!");
       res.redirect("/index");
     }
+    // console.log(assets);
     res.render("show.ejs", { assets });
   })
 );
 
 router.put(
   "/assets/:id",
+  isLoggedIn,
   validateAssets,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -52,6 +60,7 @@ router.put(
 
 router.get(
   "/assets/new",
+  isLoggedIn,
   wrapAsync((req, res) => {
     res.render("new.ejs");
   })
@@ -62,6 +71,7 @@ router.post(
   validateAssets,
   wrapAsync(async (req, res) => {
     const newAsset = new Assets(req.body);
+    newAsset.owner = req.user._id;
     await newAsset.save();
     req.flash("success", "New Asset Created");
     res.redirect("/index");
@@ -70,6 +80,7 @@ router.post(
 
 router.delete(
   "/assets/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     // Update deleteFlag instead of deleting the record

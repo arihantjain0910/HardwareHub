@@ -10,11 +10,17 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 // const { assetSchema, callLogSchema } = require("./schema.js");
 // const CallLogs = require("./models/callLogs.js");
-const assets = require("./routes/assets.js");
-const callLogs = require("./routes/callLogs.js");
+
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/users.js");
+
+const assets = require("./routes/assets.js");
+const callLogs = require("./routes/callLogs.js");
+const users = require("./routes/users.js");
 
 const MongoURL = "mongodb://127.0.0.1:27017/hardwareHub";
 main()
@@ -51,15 +57,34 @@ app.get("/", (req, res) => {
 });
 app.use(session(sessionOptions));
 app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
   next();
+});
+
+app.get("/demoUser", async (req, res) => {
+  let fakeUser = new User({
+    email: "user@gmail.com",
+    username: "user",
+  });
+
+  let registerUser = await User.register(fakeUser, "helloworld");
+  res.send(registerUser);
 });
 
 app.use("/", assets);
 app.use("/", callLogs);
-app.use(cookieParser());
+app.use("/", users);
 
 app.get(
   "/index",

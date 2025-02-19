@@ -14,44 +14,51 @@
       </div>
     </div>
   </form>
-  <h4 class="mt-2">All Hardwares</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Employee Code</th>
-        <th>Employee Name</th>
-        <th>Location</th>
-        <th>Category</th>
-        <th>View Asset</th>
-        <!--   -->
-        <!-- <th>Delete Assets</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <% for(let assets of allAssets){ %>
-      <tr>
-        <td><%= assets.employeeCode %></td>
-        <td><%= assets.employeeName %></td>
-        <td><%= assets.location %></td>
-        <td><%= assets.category %></td>
-        <td>
-          <form action="/assets/<%= assets._id %>/show/view" method="get">
-            <button class="btn-custom btnlarge">View</button>
-          </form>
-        </td>
-      </tr>
+  <div class="row offset-2">
+    <div class="col-10">
+      <h4 class="mt-2">All Hardwares</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>View Asset</th>
+            <!--   -->
+            <!-- <th>Delete Assets</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let assets of allAssets){ %>
+          <tr>
+            <td><%= assets.employeeCode %></td>
+            <td><%= assets.employeeName %></td>
+            <td><%= assets.location %></td>
+            <td><%= assets.category %></td>
+            <td>
+              <form action="/assets/<%= assets._id %>/show/view" method="get">
+                <button class="btn-custom btnlarge">View</button>
+              </form>
+            </td>
+          </tr>
 
-      <% } %>
-    </tbody>
-  </table>
-  <div>
-    <% if (currentPage > 1) { %>
-    <a href="/index?page=<%= currentPage - 1 %>&search=<%= search %>"
-      >Previous</a
-    >
-    <% } %> Page <%= currentPage %> of <%= totalPages %> <% if (currentPage <
-    totalPages) { %>
-    <a href="/index?page=<%= currentPage + 1 %>&search=<%= search %>">Next</a>
-    <% } %>
+          <% } %>
+        </tbody>
+      </table>
+
+      <div>
+        <% if (currentPage > 1) { %>
+        <a href="/index?page=<%= currentPage - 1 %>&search=<%= search %>"
+          >Previous</a
+        >
+        <% } %> Page <%= currentPage %> of <%= totalPages %> <% if (currentPage
+        < totalPages) { %>
+        <a href="/index?page=<%= currentPage + 1 %>&search=<%= search %>"
+          >Next</a
+        >
+        <% } %>
+      </div>
+    </div>
   </div>
 </body>

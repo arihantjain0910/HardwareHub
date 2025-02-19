@@ -33,6 +33,10 @@ const assetSchema = new Schema({
       ref: "CallLogs",
     },
   ],
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Assets", assetSchema);

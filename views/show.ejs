@@ -5,6 +5,7 @@
       <div class="mt-3">
         <h4>Asset Details</h4>
       </div>
+      <p><b>Created By : <%= assets.owner.username %> </b></p>
       <div class="row">
         <div class="mb-3 col-3">
           <label for="serialNo" class="form-label">Serial Number</label>
@@ -228,6 +229,8 @@
           />
         </div>
         <div class="showpagebtn mt-2">
+          <% if((currUser && currUser._id.equals(assets.owner._id)) || (currUser
+          && currUser.isAdmin === true)){ %>
           <form action="/assets/edit/<%= assets._id %>" method="get">
             <button type="submit" class="btn-custom btnlarge">Edit</button>
           </form>
@@ -248,6 +251,7 @@
           <form action="/assets/callLogs/<%= assets._id %>" method="get" id="">
             <button class="btn-custom delbtn btnlarge">Add Call Logs</button>
           </form>
+          <% } %>
         </div>
       </div>
       <br />
