@@ -5,6 +5,7 @@ const { assetSchema, callLogSchema } = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const CallLogs = require("../models/callLogs.js");
 const Assets = require("../models/assets.js");
+const { isLoggedIn } = require("../middleware.js");
 
 const validateCallLogs = (req, res, next) => {
   let { error } = callLogSchema.validate(req.body);
@@ -32,6 +33,7 @@ router.post(
     let { id } = req.params;
     const assets = await Assets.findById(id);
     let newCallLog = new CallLogs(req.body.callLog);
+
     assets.callLogs.push(newCallLog);
     await newCallLog.save();
     await assets.save();
@@ -48,6 +50,15 @@ router.delete(
     await CallLogs.findByIdAndDelete(callLogId);
     req.flash("success", " Call Log deleted!");
     res.redirect(`/assets/callLogs/${id}`);
+  })
+);
+
+router.get(
+  "/assets/allCallLogs",
+  isLoggedIn,
+  wrapAsync(async (req, res) => {
+    const allCallLogs = await CallLogs.find();
+    res.render("showCallLogs.ejs", { allCallLogs });
   })
 );
 

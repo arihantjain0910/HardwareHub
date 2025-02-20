@@ -1,0 +1,59 @@
+<% layout("./layouts/boilerplate") -%>
+<body>
+  <div>
+    <div>
+      <h4 class="mt-2">All Call Logs</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Department</th>
+            <th>Serial No.</th>
+            <th>CallLog No.</th>
+            <th>Problem Description</th>
+            <!-- <th>Reporting Date</th> -->
+            <!-- <th>Attending Date</th> -->
+            <th>Attended By</th>
+            <!-- <th>Solution Date</th> -->
+            <!-- <th>Remarks</th> -->
+            <!-- <th>Send Date</th> -->
+            <th>Gate Pass No.</th>
+            <!-- <th>Receive Date</th> -->
+            <th>Challan No.</th>
+            <!-- <th>Service Provider Name</th> -->
+            <!--   -->
+            <!-- <th>Delete Assets</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let callLog of allCallLogs){ %>
+          <tr>
+            <td><%= callLog.employeeCode %></td>
+            <td><%= callLog.employeeName %></td>
+            <td><%= callLog.plant %></td>
+            <td><%= callLog.category %></td>
+            <td><%= callLog.department %></td>
+            <td><%= callLog.serialNumber %></td>
+            <td><%= callLog.callNumber %></td>
+            <td><%= callLog.problemDescription %></td>
+            <!-- <td><%= callLog.reportingDate %></td>
+            <td><%= callLog.attendingDate %></td> -->
+            <td><%= callLog.attendedBy %></td>
+            <!-- <td><%= callLog.solutionDate %></td>
+            <td><%= callLog.remarks %></td> -->
+            <!-- <td><%= callLog.sendDate %></td> -->
+            <td><%= callLog.gatePassNumber %></td>
+            <!-- <td><%= callLog.receiveDate %></td> -->
+            <td><%= callLog.challanNumber %></td>
+            <!-- <td><%= callLog.serviceProviderName %></td> -->
+          </tr>
+
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
