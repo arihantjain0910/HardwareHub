@@ -14,80 +14,6 @@
         </div>
         <div class="row">
           <div class="mb-3 col-3">
-            <label for="serialNo" class="form-label">Serial Number</label>
-            <input
-              class="form-control"
-              type="text"
-              name="serialNo"
-              id="serialNo"
-              value="<%= assets.serialNo %>"
-              required
-            />
-            <div class="invalid-feedback">Please Enter serial no</div>
-          </div>
-
-          <div class="mb-3 col-3">
-            <label for="location" class="form-label">Location</label>
-            <input
-              class="form-control"
-              type="text"
-              name="location"
-              id="location"
-              value="<%= assets.location %>"
-              required
-            />
-            <div class="invalid-feedback">Please Enter location</div>
-          </div>
-          <div class="mb-3 col-3">
-            <label for="category" class="form-label">Category</label>
-            <input
-              class="form-control"
-              type="text"
-              name="category"
-              id="category"
-              value="<%= assets.category %>"
-              required
-            />
-
-            <div class="invalid-feedback">Please Enter category</div>
-          </div>
-          <div class="mb-3 col-3">
-            <label for="manufacturer" class="form-label">Manufacturer</label>
-            <input
-              class="form-control"
-              type="text"
-              name="manufacturer"
-              id="manufacturer"
-              value="<%= assets.manufacturer %>"
-              required
-            />
-            <div class="invalid-feedback">Please Enter manufacturer</div>
-          </div>
-          <div class="mb-3 col-3">
-            <label for="model" class="form-label">Model</label>
-            <input
-              class="form-control"
-              type="text"
-              name="model"
-              id="model"
-              value="<%= assets.model %>"
-              required
-            />
-            <div class="invalid-feedback">Please Enter model</div>
-          </div>
-          <div class="mb-3 col-3">
-            <label for="modelNo" class="form-label">Model No</label>
-            <input
-              class="form-control"
-              type="text"
-              name="modelNo"
-              id="modelNo"
-              value="<%= assets.modelNo %>"
-              required
-            />
-            <div class="invalid-feedback">Please Enter model No</div>
-          </div>
-          <div class="mb-3 col-3">
             <label for="employeeCode" class="form-label">Employee Code</label>
             <input
               class="form-control"
@@ -123,6 +49,78 @@
             />
             <div class="invalid-feedback">Please Enter department</div>
           </div>
+
+          <% if(currUser && currUser.isAdmin === true){ %>
+          <div class="mb-3 col-3">
+            <label for="location" class="form-label">Location</label>
+            <input
+              class="form-control"
+              type="text"
+              name="location"
+              id="location"
+              value="<%= assets.location %>"
+              required
+            />
+            <div class="invalid-feedback">Please Enter location</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="serialNo" class="form-label">Serial Number</label>
+            <input
+              class="form-control"
+              type="text"
+              name="serialNo"
+              id="serialNo"
+              value="<%= assets.serialNo %>"
+            />
+            <div class="invalid-feedback">Please Enter serial no</div>
+          </div>
+
+          <div class="mb-3 col-3">
+            <label for="category" class="form-label">Category</label>
+            <input
+              class="form-control"
+              type="text"
+              name="category"
+              id="category"
+              value="<%= assets.category %>"
+            />
+
+            <div class="invalid-feedback">Please Enter category</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <input
+              class="form-control"
+              type="text"
+              name="manufacturer"
+              id="manufacturer"
+              value="<%= assets.manufacturer %>"
+            />
+            <div class="invalid-feedback">Please Enter manufacturer</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="model" class="form-label">Model</label>
+            <input
+              class="form-control"
+              type="text"
+              name="model"
+              id="model"
+              value="<%= assets.model %>"
+            />
+            <div class="invalid-feedback">Please Enter model</div>
+          </div>
+          <div class="mb-3 col-3">
+            <label for="modelNo" class="form-label">Model No</label>
+            <input
+              class="form-control"
+              type="text"
+              name="modelNo"
+              id="modelNo"
+              value="<%= assets.modelNo %>"
+            />
+            <div class="invalid-feedback">Please Enter model No</div>
+          </div>
+
           <div class="mb-3 col-3">
             <label for="ram" class="form-label">RAM</label>
             <input
@@ -131,7 +129,6 @@
               id="ram"
               value="<%= assets.ram %>"
               class="form-control"
-              required
             />
             <div class="invalid-feedback">Please Enter RAM</div>
           </div>
@@ -143,7 +140,6 @@
               id="hdd"
               value="<%= assets.hdd %>"
               class="form-control"
-              required
             />
             <div class="invalid-feedback">Please Enter hdd</div>
           </div>
@@ -155,7 +151,6 @@
               name="processor"
               id="processor"
               value="<%= assets.processor %>"
-              required
             />
             <div class="invalid-feedback">Please Enter processor</div>
           </div>
@@ -167,7 +162,6 @@
               name="keyboard"
               id="keyboard"
               value="<%= assets.keyboard %>"
-              required
             />
             <div class="invalid-feedback">Please Enter keyboard</div>
           </div>
@@ -179,7 +173,6 @@
               name="mouse"
               id="mouse"
               value="<%= assets.mouse %>"
-              required
             />
             <div class="invalid-feedback">Please Enter mouse</div>
           </div>
@@ -191,7 +184,6 @@
               id="ip"
               value="<%= assets.ip %>"
               class="form-control"
-              required
             />
             <div class="invalid-feedback">Please Enter ip</div>
           </div>
@@ -203,7 +195,6 @@
               id="monitor"
               value="<%= assets.monitor %>"
               class="form-control"
-              required
             />
             <div class="invalid-feedback">Please Enter monitor</div>
           </div>
@@ -215,7 +206,6 @@
               id="os"
               value="<%= assets.os %>"
               class="form-control"
-              required
             />
             <div class="invalid-feedback">Please Enter OS</div>
           </div>
@@ -227,7 +217,6 @@
               name="antivirus"
               id="antivirus"
               value="<%= assets.antivirus %>"
-              required
             />
             <div class="invalid-feedback">Please Enter antivirus</div>
           </div>
@@ -239,7 +228,6 @@
               name="warrenty"
               id="warrenty"
               value="<%= assets.warrenty %>"
-              required
             />
             <div class="invalid-feedback">Please Enter warrenty</div>
           </div>
@@ -251,10 +239,10 @@
               name="office"
               id="office"
               value="<%= assets.office %>"
-              required
             />
             <div class="invalid-feedback">Please Enter office</div>
           </div>
+          <% } %>
         </div>
 
         <button

@@ -53,7 +53,7 @@ const sessionOptions = {
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.redirect("/login");
 });
 app.use(session(sessionOptions));
 app.use(flash());
